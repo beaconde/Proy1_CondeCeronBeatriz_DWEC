@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/icono/ultraball.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-listado.css">
+    <title>Pokémon | Movimientos</title>
+</head>
+<body>
+<noscript>
+    <p>Necesitas activar JavaScript para poder usar esta aplicación.</p>
+</noscript>
+<script src="js/modo-oscuro.js"></script>
+<div class="overlay" onclick="cerrar_menu()"></div>
+<header id="header" class="header">
+    <a href="home.html" class="header__logo">
+        <img src="img/logo.png" alt="Logo Pokémon">
+    </a>
+    <nav class="nav">
+        <ul class="nav__ul">
+            <li class="ul__li"><a href="listado-pokemon.html">Pokémon</a></li>
+            <li class="ul__li"><a href="#">Movimientos</a></li>
+            <li class="ul__li"><a href="listado-favoritos.html">Favoritos</a></li>
+            <li class="ul__li"><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav__ul nav__ul--botones">
+            <li class="ul__li ul__li--boton">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+            <li class="ul__li ul__li--desplegable">
+                <div class="div--desplegable" onclick="desplegar_menu()">
+                    <span>Usuario</span>
+                    <span class="iconify icono--desplegable" data-icon="ls:dropdown"></span>
+                </div>
+                <ul class="menu--desplegable">
+                    <li class="menu-desplegable__li">
+                        <span>Cerrar sesión</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="nav--responsive-boton" onclick="abrir_menu(this)">
+        <div class="nav__div nav__div--uno"></div>
+        <div class="nav__div nav__div--dos"></div>
+        <div class="nav__div nav__div--tres"></div>
+    </div>
+</header>
+<main>
+    <nav class="nav--responsive">
+        <ul class="nav--responsive__ul">
+            <li class="ul__li--responsive"><a href="listado-pokemon.html">Pokémon</a></li>
+            <li class="ul__li--responsive"><a href="#">Movimientos</a></li>
+            <li class="ul__li--responsive"><a href="listado-favoritos.html">Favoritos</a></li>
+            <li class="ul__li--responsive"><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav--responsive__ul--botones">
+            <li class="ul__li--responsive-botones">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+            <li class="ul__li--responsive-botones">
+                <span class="span--cerrar-sesion">Cerrar sesión</span>
+            </li>
+        </ul>
+    </nav>
+    <div class="titulo">
+        <div class="titulo__div">
+            <img src="img/icono/superball.png" alt="Logo pokémball blanca" class="titulo__img">
+        </div>
+        <h1 class="titulo__h1">
+            <span class="titulo__contenido">Movimientos</span>
+        </h1>
+    </div>
+    <form action="" class="form">
+        <div class="form__buscadores">
+            <label for="nombre" class="form__label">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="input--text">
+            </label>
+            <label for="tipo" class="form__label">
+                <select name="tipo" id="tipo" class="input--select">
+                    <option value="" disabled selected>Tipo</option>
+                    <option value="acero">Acero</option>
+                    <option value="agua">Agua</option>
+                    <option value="bicho">Bicho</option>
+                    <option value="dragon">Dragón</option>
+                    <option value="electrico">Eléctrico</option>
+                    <option value="fantasma">Fantasma</option>
+                    <option value="fuego">Fuego</option>
+                    <option value="hada">Hada</option>
+                    <option value="hielo">Hielo</option>
+                    <option value="lucha">Lucha</option>
+                    <option value="normal">Normal</option>
+                    <option value="planta">Planta</option>
+                    <option value="psiquico">Psíquico</option>
+                    <option value="roca">Roca</option>
+                    <option value="siniestro">Siniestro</option>
+                    <option value="tierra">Tierra</option>
+                    <option value="veneno">Veneno</option>
+                    <option value="volador">Volador</option>
+                </select>
+            </label>
+        </div>
+        <label for="categoria" class="form__label form__label--categoria">
+            <select name="categoria" id="categoria" class="input--select">
+                <option value="" disabled selected>Categoría</option>
+                <option value="especial">Especial</option>
+                <option value="estado">Estado</option>
+                <option value="fisico">Físico</option>
+            </select>
+        </label>
+        <div class="form__div">
+            <button class="boton boton--pequeño">
+                <span class="boton__contenido">Buscar</span>
+            </button>
+            <button class="boton--circular">
+                <img src="img/icono/random.png" alt="Pokémon aleatorio" class="boton__contenido--random">
+            </button>
+        </div>
+    </form>
+    <section class="section">
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+        <div class="movimiento">
+            <img src="img/movimiento/categoria/especial.png" alt="Ataque Especial">
+            <p>Rayo</p>
+        </div>
+    </section>
+    <div class="botones">
+        <button class="boton boton--pequeño">
+            <span class="boton__contenido">Anterior</span>
+        </button>
+        <button class="boton boton--pequeño">
+            <span class="boton__contenido">Siguiente</span>
+        </button>
+    </div>
+</main>
+<footer class="footer">
+    <a href="#header" class="footer__logo"><img src="img/icono/ultraball.png" alt="Logo Ultraball"></a>
+    <ul class="footer__ul">
+        <li><a href="">Cookies</a></li>
+        <li><a href="">Aviso Legal</a></li>
+        <li><a href="">Política de Privacidad</a></li>
+    </ul>
+    <div class="footer__div--redes">
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-github"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-twitter"></span></a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-discord-alt"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-instagram-alt"></span></a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="js/main.js" ></script>
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+</body>
+</html>

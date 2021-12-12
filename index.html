@@ -5,9 +5,74 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/icono/ultraball.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-home.css">
+    <title>Pokémon</title>
 </head>
 <body>
-
+<noscript>
+    <p>Necesitas activar JavaScript para poder usar esta aplicación.</p>
+</noscript>
+<script src="js/modo-oscuro.js"></script>
+<header id="header" class="header">
+    <a href="#" class="header__logo">
+        <img src="img/logo.png" alt="Logo Pokémon">
+    </a>
+    <nav class="nav--sin-sesion">
+        <ul class="nav__ul">
+            <li class="ul__li"><a href="login.html">Iniciar sesión</a></li>
+            <li class="ul__li ul__li--boton">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="section">
+        <div class="section__div--imagen section__div--grande">
+            <img src="img/pokemon/ninetales-38.png" alt="Ninetales">
+        </div>
+        <div class="section__div--texto section__div--pequeño">
+            <div class="div--contenedor">
+                <h1>Bienvenido al Mundo Pokémon</h1>
+                <p>Regístrate para conocer toda la información que necesites y más sobre el mundo Pokémon.</p>
+                <a href="registro.html" class="boton boton--grande">
+                    <img src="img/icono/pokeball-blanca.png" alt="Icono pokéball blanca" class="boton__contenido boton__contenido--icono">
+                    <span class="boton__contenido">Registrarse</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <a href="#header" class="footer__logo"><img src="img/icono/ultraball.png" alt="Logo Ultraball"></a>
+    <ul class="footer__ul">
+        <li><a href="">Cookies</a></li>
+        <li><a href="">Aviso Legal</a></li>
+        <li><a href="">Política de Privacidad</a></li>
+    </ul>
+    <div class="footer__div--redes">
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-github"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-twitter"></span></a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-discord-alt"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-instagram-alt"></span></a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 </body>
 </html>

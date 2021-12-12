@@ -1,0 +1,414 @@
+
+/*
+    Section estructura
+*/
+
+.section {
+    display: flex;
+    min-height: 110vh;
+}
+
+.section__div--grande {
+    width: 60%;
+}
+
+.section__div--pequeño {
+    width: 40%;
+}
+
+.div--contenedor {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section__div--imagen {
+    background: linear-gradient(52.75deg, var(--morado) 0%, #8B7AD0B3 100%); /* B3 -> 70% opacidad */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section__div--imagen img {
+    margin-left: 5%;
+    width: 55%;
+}
+
+
+/*
+    Formulario
+*/
+
+
+.section__div--formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.titulo--formulario {
+    align-self: flex-start;
+    margin-left: 15%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: 40%;
+}
+
+.form__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.label__span {
+    padding: 15px;
+}
+
+.input--text {
+    border: 1px solid var(--negro);
+    border-radius: 0.7em;
+    padding:7px;
+    margin-bottom: 14px;
+    width: 254px;
+    outline: none;
+    transition: all 0.2s ease-in;
+}
+
+.input--text:focus {
+    border: 1px solid var(--negro);
+    box-shadow: 0 0 5px 1px var(--morado-claro);
+    transition: all 0.2s ease-in;
+}
+
+abbr {
+    text-decoration: none;
+    color: var(--rojo);
+}
+
+.form__label--checkbox {
+    /* Para que solo se active el checkbox al hacer click en el contenido */
+    width: fit-content;
+    margin: 15px 0 20px 15px; /* arriba derecha abajo izquierda */
+}
+
+.label--checkbox__input {
+    vertical-align: middle;
+}
+
+.label--checkbox__span {
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.boton {
+    align-self: flex-end;
+    margin-right: 15px;
+    margin-top: 30px;
+}
+
+.form__div {
+    align-self: flex-end;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.div__span {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.span__a {
+    transition: all 0.2s ease-in;
+}
+
+.span__a:hover {
+    color: var(--morado-claro);
+    transition: all 0.2s ease-in;
+}
+
+.section__div--imagen-espeon {
+    background: linear-gradient(232.75deg, var(--morado) 0%, #8B7AD0B3 100%);
+}
+
+.section__div--imagen-espeon img {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+
+/*
+    Validación formulario
+*/
+
+
+.invalid {
+    border-color: var(--rojo);
+}
+
+.invalid::placeholder {
+    color: var(--rojo);
+}
+
+.error {
+    color: var(--rojo);
+    padding-left: 15px;
+}
+
+
+/*
+    Formulario de contacto
+*/
+
+.titulo--contacto {
+    width: 80%;
+}
+
+.section__div--imagen-sneasel {
+    background: linear-gradient(232.75deg, var(--morado) 0%, #8B7AD0B3 100%);
+}
+
+.div--contenedor-contacto {
+    width: 75%;
+}
+
+.section__div--contacto {
+    display: flex;
+    justify-content: center;
+}
+
+.form--contacto {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.form--contacto__label {
+    display: flex;
+    flex-direction: column;
+}
+
+.form--contacto__label span {
+    padding: 15px;
+}
+
+.form--contacto__row {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form--contacto__label {
+    width: 100%;
+}
+
+.form--contacto__label .input--text {
+    width: 80%;
+}
+
+.form--contacto__label--textarea {
+    width: 100%;
+}
+
+.input--text-textarea {
+    width: 100%;
+}
+
+.boton--contacto {
+    margin: 10% 0 15% 80%;
+}
+
+.div--imagen__div {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+}
+
+hr {
+    width: 65%;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.div--imagen__div p {
+    color: var(--blanco);
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.div--imagen__div svg {
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+.section__div--imagen path {
+    color: var(--blanco);
+}
+
+.section__div--imagen-sneasel {
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+}
+
+.section__div--imagen-sneasel img {
+    margin-bottom: 30px;
+    width: 75%;
+}
+
+
+
+@media (max-width: 1024px) {
+
+    .input--text {
+        width: 214px;
+    }
+
+    .form--contacto__label .input--text {
+        width: 214px;
+    }
+
+    .div--imagen__div p {
+        font-size: 12px;
+    }
+
+    .form--contacto__row {
+        flex-direction: column;
+    }
+
+    .form--contacto {
+        margin-left: 5%;
+    }
+
+    .boton--contacto {
+        align-self: center;
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width: 870px) {
+
+    .input--text {
+        width: 174px;
+    }
+
+}
+
+@media (max-width: 780px) {
+
+    .section__div--imagen-sneasel img {
+        width: 50%;
+    }
+
+    hr {
+        width: 50%;
+    }
+
+    .section__div--formulario, .section__div--contacto {
+        font-size: 14px;
+    }
+
+    .div__span {
+        font-size: 13px;
+    }
+
+    .section {
+        flex-direction: column;
+    }
+
+    .section__div--imagen-spoink, .section__div--imagen-espeon {
+        display: none;
+    }
+
+    .section > div {
+        min-height: 70vh;
+        width:100%;
+    }
+
+    .titulo {
+        align-self: center;
+        margin-left: 0;
+    }
+
+    .section__div--imagen-espeon img {
+        margin-right: 5%;
+    }
+
+    .section__div--imagen-sneasel {
+        width: 55%;
+    }
+
+    .input--text {
+        width: 224px;
+        padding: 5px;
+    }
+
+    .form {
+        margin-left: 5%;
+    }
+
+    .form__div {
+        align-self: center;
+    }
+
+    .boton {
+        align-self: center;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .section__div--formulario, .section__div--contacto {
+        font-size: 12px;
+    }
+
+    .div__span {
+        font-size: 11px;
+    }
+
+    .section > div {
+        min-height: 50vh;
+        width:100%;
+    }
+
+    .form {
+        margin-left: 0;
+    }
+
+    .input--text {
+        width: 184px;
+        padding: 4px;
+    }
+
+    .form--contacto__label .input--text {
+        width: 184px;
+    }
+
+}
+
+@media (max-width: 320px) {
+
+    .input--text {
+        width: 144px;
+        padding: 3px;
+    }
+
+    .form--contacto__label .input--text {
+        width: 144px;
+    }
+
+}
+
+
+

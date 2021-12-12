@@ -1,0 +1,86 @@
+
+* {
+    color: var(--blanco);
+}
+
+.header, main {
+    background-color: var(--negro);
+}
+
+.header path:hover {
+    color: #FFFFFF66;
+}
+
+.menu--desplegable {
+    background-color: var(--negro);
+    border-color: var(--gris-modo-oscuro);
+    transition: all 0.2s ease-in;
+}
+
+.menu--desplegable:hover {
+    background-color: var(--gris-modo-oscuro);
+    transition: all 0.2s ease-in;
+}
+
+.nav__div {
+    background-color: var(--blanco);
+}
+
+.footer__ul a, .footer path, circle {
+    color: var(--negro);
+    transition: all 0.2s ease-in;
+}
+
+.footer__ul a:hover, .footer path:hover {
+    color: #22222266;
+    transition: all 0.2s ease-in;
+}
+
+.titulo__div {
+    border-color: var(--gris-modo-oscuro);
+}
+
+.titulo__h1 {
+    border-color: var(--gris-modo-oscuro);
+}
+
+.boton:focus, .boton--circular:focus {
+    border-color: var(--blanco);
+}
+
+.input--text, .input--select {
+    background-color: #22222266;
+    border-color: var(--blanco);
+}
+
+option {
+    background-color: var(--negro);
+}
+
+::placeholder {
+    color: var(--blanco);
+}
+
+
+.pokemon, .movimiento {
+    border-color: var(--gris-modo-oscuro);
+}
+
+.invalid {
+    border-color: var(--rojo);
+}
+
+.error {
+    color: var(--rojo);
+    padding-left: 15px;
+}
+
+@media (max-width: 1024px) {
+
+    .titulo__h1 {
+        border-color: #554DD0CC;
+    }
+
+}
+
+

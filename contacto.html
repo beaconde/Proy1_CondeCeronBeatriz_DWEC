@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/icono/ultraball.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-form.css">
+    <title>Pokémon | Contacto</title>
+</head>
+<body>
+<noscript>
+    <p>Necesitas activar JavaScript para poder usar esta aplicación.</p>
+</noscript>
+<script src="js/modo-oscuro.js"></script>
+<div class="overlay" onclick="cerrar_menu()"></div>
+<header id="header" class="header">
+    <a href="home.html" class="header__logo">
+        <img src="img/logo.png" alt="Logo Pokémon">
+    </a>
+    <nav class="nav">
+        <ul class="nav__ul">
+            <li class="ul__li"><a href="listado-pokemon.html">Pokémon</a></li>
+            <li class="ul__li"><a href="listado-movimientos.html">Movimientos</a></li>
+            <li class="ul__li"><a href="listado-favoritos.html">Favoritos</a></li>
+            <li class="ul__li"><a href="#">Contacto</a></li>
+        </ul>
+        <ul class="nav__ul nav__ul--botones">
+            <li class="ul__li ul__li--boton">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+            <li class="ul__li ul__li--desplegable">
+                <div class="div--desplegable" onclick="desplegar_menu()">
+                    <span>Usuario</span>
+                    <span class="iconify icono--desplegable" data-icon="ls:dropdown"></span>
+                </div>
+                <ul class="menu--desplegable">
+                    <li class="menu-desplegable__li">
+                        <span>Cerrar sesión</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="nav--responsive-boton" onclick="abrir_menu(this)">
+        <div class="nav__div nav__div--uno"></div>
+        <div class="nav__div nav__div--dos"></div>
+        <div class="nav__div nav__div--tres"></div>
+    </div>
+</header>
+<main>
+    <nav class="nav--responsive">
+        <ul class="nav--responsive__ul">
+            <li class="ul__li--responsive"><a href="listado-pokemon.html">Pokémon</a></li>
+            <li class="ul__li--responsive"><a href="listado-movimientos.html">Movimientos</a></li>
+            <li class="ul__li--responsive"><a href="listado-favoritos.html">Favoritos</a></li>
+            <li class="ul__li--responsive"><a href="#">Contacto</a></li>
+        </ul>
+        <ul class="nav--responsive__ul--botones">
+            <li class="ul__li--responsive-botones">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+            <li class="ul__li--responsive-botones">
+                <span class="span--cerrar-sesion">Cerrar sesión</span>
+            </li>
+        </ul>
+    </nav>
+    <section class="section">
+        <div class="section__div--grande section__div--contacto">
+            <div class="div--contenedor-contacto">
+                <div class="titulo titulo--contacto">
+                    <div class="titulo__div">
+                        <img src="img/icono/pokeball-blanca.png" alt="Logo pokémball blanca" class="titulo__img">
+                    </div>
+                    <h1 class="titulo__h1">
+                        <span class="titulo__contenido">Contáctanos</span>
+                    </h1>
+                </div>
+                <p>Para enviarnos un mensaje, rellena el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                <form action="" class="form--contacto" onsubmit="return validarEnvio()">
+                    <div class="form--contacto__row">
+                        <label for="nombre" class="form--contacto__label">
+                            <span>Nombre</span>
+                            <input type="text" name="nombre" id="nombre" class="input--text">
+                            <span id="nombreError" class="error hidden"></span>
+                        </label>
+                        <label for="email" class="form--contacto__label">
+                            <span>Email</span>
+                            <input type="text" name="email" id="email" class="input--text">
+                            <span id="emailError" class="error hidden"></span>
+                        </label>
+                    </div>
+                    <label for="mensaje" class="form--contacto__label form--contacto__label--textarea">
+                        <span>Mensaje</span>
+                        <textarea name="mensaje" id="mensaje" rows="4" class="input--text input--text-textarea"></textarea>
+                        <span id="mensajeError" class="error hidden"></span>
+                    </label>
+                    <button type="submit" value="enviar" class="boton boton--grande boton--contacto">
+                        <img src="img/icono/pokeball-blanca.png" alt="Logo pokéball blanca" class="boton__contenido boton__contenido--icono">
+                        <span class="boton__contenido">Enviar</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="section__div--pequeño section__div--imagen section__div--imagen-sneasel">
+            <img src="img/pokemon/sneasel-215.png" alt="Sneasel">
+            <hr>
+            <div class="div--imagen__div">
+                <p>
+                    <span class="iconify" data-icon="mdi:gmail"></span> beatrizcondeceron@gmail.com
+                </p>
+                <p>
+                    <span class="iconify" data-icon="mdi:phone"></span> 722 12 34 56
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <a href="#header" class="footer__logo"><img src="img/icono/ultraball.png" alt="Logo Ultraball"></a>
+    <ul class="footer__ul">
+        <li><a href="">Cookies</a></li>
+        <li><a href="">Aviso Legal</a></li>
+        <li><a href="">Política de Privacidad</a></li>
+    </ul>
+    <div class="footer__div--redes">
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-github"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-twitter"></span></a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-discord-alt"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-instagram-alt"></span></a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="js/contacto.js"></script>
+<script src="js/main.js"></script>
+<script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+</body>
+</html>

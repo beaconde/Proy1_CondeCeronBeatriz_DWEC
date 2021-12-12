@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/icono/ultraball.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-form.css">
+    <title>Pokémon | Iniciar sesión</title>
+</head>
+<body>
+<noscript>
+    <p>Necesitas activar JavaScript para poder usar esta aplicación.</p>
+</noscript>
+<script src="js/modo-oscuro.js"></script>
+<header id="header" class="header">
+    <a href="index.html" class="header__logo">
+        <img src="img/logo.png" alt="Logo Pokémon">
+    </a>
+    <nav class="nav--sin-sesion">
+        <ul class="nav__ul">
+            <li class="ul__li"><a href="#">Iniciar sesión</a></li>
+            <li class="ul__li ul__li--boton">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="section">
+        <div class="section__div--imagen section__div--grande section__div--imagen-spoink">
+            <img src="img/pokemon/spoink-325.png" alt="Spoink">
+        </div>
+        <div class="section__div--formulario section__div--pequeño">
+            <div class="titulo titulo--formulario">
+                <div class="titulo__div">
+                    <img src="img/icono/pokeball-blanca.png" alt="Logo pokémball blanca" class="titulo__img">
+                </div>
+                <h1 class="titulo__h1">
+                    <span class="titulo__contenido">Iniciar sesión</span>
+                </h1>
+            </div>
+            <div class="div--contenedor">
+                <form action="" class="form" name="login" onsubmit="return validarLogin()">
+                    <label for="usuario" class="form__label">
+                        <span class="label__span">Usuario</span>
+                        <input type="text" name="usuario" id="usuario" class="input--text">
+                        <span id="usuarioError" class="error hidden"></span>
+                    </label>
+                    <label for="contraseña" class="form__label">
+                        <span class="label__span">Contraseña</span>
+                        <input type="password" name="contraseña" id="contraseña" class="input--text">
+                        <span id="contraseñaError" class="error hidden"></span>
+                    </label>
+                    <label for="recuerdame" class="form__label--checkbox">
+                        <input type="checkbox" value="recuerdame" id="recuerdame" class="label--checkbox__input">
+                        <span class="label--checkbox__span">Recuérdame</span>
+                    </label>
+                    <button type="submit" value="entrar" class="boton boton--grande">
+                        <img src="img/icono/pokeball-blanca.png" alt="Logo pokéball blanca" class="boton__contenido boton__contenido--icono">
+                        <span class="boton__contenido">Entrar</span>
+                    </button>
+                    <div class="form__div">
+                        <span class="div__span">¿No tienes cuenta? <a href="registro.html" class="span__a">Regístrate</a>.</span>
+                        <span class="div__span"><a href="#" class="span__a">¿Has olvidado tu contraseña?</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <a href="#header" class="footer__logo"><img src="img/icono/ultraball.png" alt="Logo Ultraball"></a>
+    <ul class="footer__ul">
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Aviso Legal</a></li>
+        <li><a href="#">Política de Privacidad</a></li>
+    </ul>
+    <div class="footer__div--redes">
+        <ul>
+            <li>
+                <a href="#"><span class="iconify" data-icon="bx:bxl-github"></span></a>
+            </li>
+            <li>
+                <a href="#"><span class="iconify" data-icon="bx:bxl-twitter"></span></a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#"><span class="iconify" data-icon="bx:bxl-discord-alt"></span></a>
+            </li>
+            <li>
+                <a href="#"><span class="iconify" data-icon="bx:bxl-instagram-alt"></span></a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="js/login.js"></script>
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+</body>
+</html>

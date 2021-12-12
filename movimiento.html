@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/icono/ultraball.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-producto.css">
+    <title>Movimiento | Rayo</title>
+</head>
+<body>
+<noscript>
+    <p>Necesitas activar JavaScript para poder usar esta aplicación.</p>
+</noscript>
+<script src="js/modo-oscuro.js"></script>
+<div class="overlay" onclick="cerrar_menu()"></div>
+<header id="header" class="header">
+    <a href="home.html" class="header__logo">
+        <img src="img/logo.png" alt="Logo Pokémon">
+    </a>
+    <nav class="nav">
+        <ul class="nav__ul">
+            <li class="ul__li"><a href="listado-pokemon.html">Pokémon</a></li>
+            <li class="ul__li"><a href="listado-movimientos.html">Movimientos</a></li>
+            <li class="ul__li"><a href="listado-favoritos.html">Favoritos</a></li>
+            <li class="ul__li"><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav__ul nav__ul--botones">
+            <li class="ul__li ul__li--boton">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+            <li class="ul__li ul__li--desplegable">
+                <div class="div--desplegable" onclick="desplegar_menu()">
+                    <span>Usuario</span>
+                    <span class="iconify icono--desplegable" data-icon="ls:dropdown"></span>
+                </div>
+                <ul class="menu--desplegable">
+                    <li class="menu-desplegable__li">
+                        <span>Cerrar sesión</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="nav--responsive-boton" onclick="abrir_menu(this)">
+        <div class="nav__div nav__div--uno"></div>
+        <div class="nav__div nav__div--dos"></div>
+        <div class="nav__div nav__div--tres"></div>
+    </div>
+</header>
+<main>
+    <nav class="nav--responsive">
+        <ul class="nav--responsive__ul">
+            <li class="ul__li--responsive"><a href="listado-pokemon.html">Pokémon</a></li>
+            <li class="ul__li--responsive"><a href="listado-movimientos.html">Movimientos</a></li>
+            <li class="ul__li--responsive"><a href="listado-favoritos.html">Favoritos</a></li>
+            <li class="ul__li--responsive"><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <ul class="nav--responsive__ul--botones">
+            <li class="ul__li--responsive-botones">
+                <button class="boton--modo-oscuro">
+                    <span class="iconify" data-icon="ic:baseline-dark-mode"></span>
+                </button>
+            </li>
+            <li class="ul__li--responsive-botones">
+                <span class="span--cerrar-sesion">Cerrar sesión</span>
+            </li>
+        </ul>
+    </nav>
+    <section class="movimiento">
+        <div class="titulo">
+            <div class="titulo__div">
+                <img src="img/icono/superball.png" alt="Logo pokémball blanca" class="titulo__img">
+            </div>
+            <h1 class="titulo__h1">
+                <span class="titulo__contenido">Rayo</span>
+                <span class="h1__imagen">
+                    <img src="img/movimiento/tipo/electrico.png" alt="Tipo eléctrico">
+                </span>
+            </h1>
+        </div>
+        <div class="datos--movimiento">
+            <div class="datos--movimiento__imagen">
+                <img src="img/movimiento/categoria/especial.png" alt="Movimiento especial">
+                <hr>
+            </div>
+            <div class="datos--movimiento__texto">
+                <p>Potente ataque eléctrico que puede paralizar al objetivo.</p>
+                <table class="texto__table">
+                    <thead>
+                    <tr>
+                        <td>Potencia</td>
+                        <td>Precisión</td>
+                        <td>PP</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>90</td>
+                        <td>100</td>
+                        <td>15</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="listado-movimientos.html" class="boton boton--pequeño">
+            <span class="boton__contenido">Atrás</span>
+        </a>
+    </section>
+</main>
+<footer class="footer">
+    <a href="#header" class="footer__logo"><img src="img/icono/ultraball.png" alt="Logo Ultraball"></a>
+    <ul class="footer__ul">
+        <li><a href="">Cookies</a></li>
+        <li><a href="">Aviso Legal</a></li>
+        <li><a href="">Política de Privacidad</a></li>
+    </ul>
+    <div class="footer__div--redes">
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-github"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-twitter"></span></a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-discord-alt"></span></a>
+            </li>
+            <li>
+                <a href=""><span class="iconify" data-icon="bx:bxl-instagram-alt"></span></a>
+            </li>
+        </ul>
+    </div>
+</footer>
+<script src="js/main.js"></script>
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+</body>
+</html>

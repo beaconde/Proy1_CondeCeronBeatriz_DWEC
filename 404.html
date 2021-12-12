@@ -5,13 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/icono/ultraball.png">
+    <link rel="stylesheet" href="css/style-404.css">
     <title>Error 404</title>
 </head>
 <body>
 <noscript>
     <p>Necesitas activar JavaScript para poder usar esta aplicación.</p>
 </noscript>
-<script src="js/modo-oscuro.js"></script>
-
+<main class="main">
+    <div class="error__contenedor">
+        <div class="error--404">
+            <span class="error--404__numero">4</span>
+            <img src="img/icono/ultraball.png" alt="Logo ultraball" class="error__img">
+            <span class="error--404__numero">4</span>
+        </div>
+        <p class="parrafo">La página que estabas buscando no existe.</p>
+    </div>
+    <div class="volver" onclick="history.back()">
+        <img src="img/icono/ultraball.png" alt="Logo Ultraball" class="volver__img">
+        <p class="parrafo">Volver.</p>
+    </div>
+</main>
 </body>
 </html>

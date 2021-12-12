@@ -42,7 +42,7 @@
     color: var(--morado-claro);
 }
 
-.error__img {
+.error--404__img {
     height: 140px;
     margin: 0 15px;
 }
@@ -103,7 +103,7 @@
 
 
 
-.error__img {
+.error--404__img {
     animation: rotate 4s linear infinite;
 }
 
@@ -133,4 +133,74 @@
         transform: rotate(0deg);
     }
 }
+
+
+
+
+@media (max-width: 780px) {
+
+    .parrafo {
+        font-size: 14px;
+    }
+
+    .error--404__img {
+        height: 120px;
+    }
+
+    .error--404__numero {
+        font-size: 10em;
+    }
+
+    .volver__img {
+        height: 2.5em;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .error--404__img {
+        height: 100px;
+    }
+
+    .error--404__numero {
+        font-size: 8em;
+    }
+
+    .volver__img {
+        height: 2em;
+    }
+
+    .volver {
+        margin-top: 50%;
+        margin-right: 5%;
+    }
+
+}
+
+@media (max-width: 320px) {
+
+    .parrafo {
+        font-size: 12px;
+    }
+
+    .error--404__img {
+        height: 80px;
+    }
+
+    .error--404__numero {
+        font-size: 6em;
+    }
+
+    .volver__img {
+        height: 1.5em;
+    }
+
+    .volver {
+        margin-top: 80%;
+    }
+
+}
+
+
 

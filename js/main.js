@@ -35,3 +35,33 @@ const cerrar_menu = () => {
     nav_responsive.style.width = '0';
     body.classList.remove('scroll-desactivado');
 }
+
+
+
+// Cerrar sesión
+
+const cerrar_sesion = () => {
+    window.location.href = 'index.html';
+}
+
+
+// Ir a la página anterior
+
+const pagina_anterior = () => {
+    history.back();
+}
+
+
+// Ir a la página del pokémon
+
+const pokemon = () => {
+    window.location.href = 'pokemon.html';
+}
+
+
+// Ir a la página del movimiento
+
+const movimiento = () => {
+    window.location.href = 'movimiento.html';
+}
+

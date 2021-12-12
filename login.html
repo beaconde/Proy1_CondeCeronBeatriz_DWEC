@@ -45,21 +45,20 @@
                 </h1>
             </div>
             <div class="div--contenedor">
-                <form action="" class="form" name="login" onsubmit="return validarLogin()">
+                <form action="home.html" class="form" name="login" onsubmit="return validarLogin()">
                     <label for="usuario" class="form__label">
                         <span class="label__span">Usuario</span>
                         <input type="text" name="usuario" id="usuario" class="input--text">
-                        <span id="usuarioError" class="error hidden"></span>
                     </label>
                     <label for="contraseña" class="form__label">
                         <span class="label__span">Contraseña</span>
                         <input type="password" name="contraseña" id="contraseña" class="input--text">
-                        <span id="contraseñaError" class="error hidden"></span>
                     </label>
                     <label for="recuerdame" class="form__label--checkbox">
                         <input type="checkbox" value="recuerdame" id="recuerdame" class="label--checkbox__input">
                         <span class="label--checkbox__span">Recuérdame</span>
                     </label>
+                    <span id="loginError" class="error hidden"></span>
                     <button type="submit" value="entrar" class="boton boton--grande">
                         <img src="img/icono/pokeball-blanca.png" alt="Logo pokéball blanca" class="boton__contenido boton__contenido--icono">
                         <span class="boton__contenido">Entrar</span>

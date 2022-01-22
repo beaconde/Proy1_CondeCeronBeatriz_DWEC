@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="img/icono/ultraball.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-producto.css">
-    <title>Pokémon | Pikachu</title>
+    <title>Pokémon | </title>
 </head>
 <body>
 <noscript>
@@ -77,9 +77,9 @@
                 <img src="img/icono/pokeball.png" alt="Logo pokémball blanca" class="titulo__img">
             </div>
             <h1 class="titulo__h1">
-                <span class="titulo__contenido">Pikachu</span>
+                <span class="titulo__contenido"></span>
                 <span class="h1__imagen">
-                    <img src="img/movimiento/tipo/electrico.png" alt="Tipo eléctrico">
+                    <!-- <img src="img/movimiento/tipo/electric.png" alt="Tipo eléctrico"> -->
                     <!-- Para pokémon que sean de dos tipos -->
                     <!-- <img src="img/movimiento/tipo/electrico.png" alt="Tipo eléctrico"> -->
                 </span>
@@ -87,20 +87,20 @@
         </div>
         <div class="datos--pokemon">
             <div class="datos--pokemon__imagen">
-                <img src="img/pokemon/pikachu-25.png" alt="Pikachu">
+
             </div>
             <div class="datos--pokemon__texto">
                 <div class="texto--pokemon__numero">
-                    <p class="texto--pokemon__p numero-pokemon">Nº025</p>
+                    <p class="texto--pokemon__p numero-pokemon"></p>
                     <hr class="texto--pokemon__hr">
                 </div>
-                <p class="texto--pokemon__p">Levanta su cola para vigilar los alrededores. A veces, puede ser alcanzado por un rayo en esa pose.</p>
+                <p class="texto--pokemon__p descripcion-pokemon"></p>
                 <div class="texto--pokemon__ul-table">
                     <div>
                         <span>Habilidades:</span>
                         <ul class="texto--pokemon__ul">
-                            <li>Elec. estática</li>
-                            <li>Pararrayos</li>
+                            <!-- <li>Elec. estática</li> -->
+                            <!-- <li>Pararrayos</li> -->
                         </ul>
                     </div>
                     <table class="texto__table">
@@ -112,15 +112,15 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>0,7 m</td>
-                            <td>6,9 kg</td>
+                            <td class="height"></td>
+                            <td class="weight"></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <a href="" class="boton boton--pequeño" onclick="pagina_anterior()">
+        <a href="" class="boton boton--pequeño boton--atras">
             <span class="boton__contenido">Atrás</span>
         </a>
     </section>
@@ -152,6 +152,7 @@
     </div>
 </footer>
 <script src="js/main.js"></script>
+<script src="js/api-details.js"></script>
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 </body>
 </html>

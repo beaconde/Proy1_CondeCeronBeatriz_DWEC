@@ -2,6 +2,9 @@
 main {
     min-height: 80vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .titulo__img {
@@ -78,7 +81,7 @@ main {
 .datos--pokemon {
     padding: 40px 70px 0 70px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
 }

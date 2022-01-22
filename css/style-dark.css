@@ -3,6 +3,10 @@
     color: var(--blanco);
 }
 
+img {
+    color: var(--negro);
+}
+
 .header, main {
     background-color: var(--negro);
 }

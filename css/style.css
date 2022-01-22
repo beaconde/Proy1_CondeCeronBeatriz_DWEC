@@ -732,3 +732,33 @@ html, body {
     }
 
 }
+
+.pokeballs {
+    height:80px;
+    display: block;
+    margin: auto;
+}
+
+.figure figcaption {
+    margin-top: 20px;
+}
+
+.figure {
+    margin: 0 0 100px 0;
+}
+
+.loader figcaption {
+    opacity: 70%;
+}
+
+.loader {
+    height: 80px;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

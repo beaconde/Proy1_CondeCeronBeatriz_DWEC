@@ -16,6 +16,7 @@ const error =
 <figcaption>Aún no tienes ningún pokémon favorito.</figcaption>
 </figure>`;
 
+let searchedPokemon;
 let favoritePokemon;
 
 // Control de eventos
@@ -32,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+nextButton.addEventListener('click', event => loadNext(event));
+prevButton.addEventListener('click', event => loadPrev(event));
 
 randomButton.addEventListener('click', (event) => getRandomFavorite(event));
 searchForm.addEventListener('submit', (event) => searchFavorite(event));
@@ -50,7 +54,11 @@ const fetchFavoritePokemon = async favoritePokemon => {
         prevButton.style.display = 'flex';
     }
 
-    for (let id of favoritePokemon) {
+    let paginatedPokemon = paginateArray(favoritePokemon, 18, 1);
+    setPaginatedButtons(1);
+    searchedPokemon = favoritePokemon;
+
+    for (let id of paginatedPokemon) {
 
         await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
         .then(handleError)
@@ -92,7 +100,7 @@ const printPokemon = (pokemonName, pokemonNumber, pokemonImage) => {
 const displayList = pokemonList => {
     let template = '';
 
-    if (pokemonList.length < 18) {
+    if (pokemonList.length < 18 && searchedPokemon === undefined) {
         nextButton.style.display = 'none';
         prevButton.style.display = 'none';
     } else {
@@ -187,7 +195,12 @@ const searchFavorite = async event => {
         }
     }
 
-    if (pokemons.length > 0) displayList(pokemons)
+    if (pokemons.length > 0) {
+        let paginatedPokemon = paginateArray(pokemons, 18, 1);
+        displayList(paginatedPokemon);
+        setPaginatedButtons(1);
+        searchedPokemon = pokemons;
+    }
     else section.innerHTML = `<figure class="figure">
                               <img src="img/icono/pokeballs.png" alt="Error" class="pokeballs">
                               <figcaption>No se ha encontrado ningún pokémon.</figcaption>
@@ -232,4 +245,32 @@ const getPokemonsByType = async type => {
     }
 
     return pokemons;
+}
+
+const setPaginatedButtons = pageNumber => {
+
+    if (prevButton.hasAttribute('data-page')) prevButton.removeAttribute('data-page');
+    prevButton.setAttribute('data-page', pageNumber -1);
+
+    if (nextButton.hasAttribute('data-page')) nextButton.removeAttribute('data-page')
+    nextButton.setAttribute('data-page', pageNumber +1);
+    
+}
+
+// Muestra los siguientes 18 pokémon
+const loadNext = event => {
+    let pageNumber = event.currentTarget.getAttribute('data-page');
+    let pokemons = paginateArray(searchedPokemon, 18, pageNumber);
+    fetchFavoritePokemon(pokemons);
+    setPaginatedButtons(pageNumber);
+}
+
+// Muestra los anteriores 18 pokémon
+const loadPrev = event => {
+    let pageNumber = event.currentTarget.getAttribute('data-page');
+    if (pageNumber > 0) {
+        let pokemons = paginateArray(searchedPokemon, 18, pageNumber);
+        fetchFavoritePokemon(pokemons);
+        setPaginatedButtons(pageNumber);
+    }
 }

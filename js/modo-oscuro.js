@@ -65,14 +65,14 @@ const desactivarModoOscuro = () => {
 }
 
 // Comprueba si el ordenador del usuario está en modo oscuro y pone la página en modo oscuro por defecto
-let modo_oscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
-if (modo_oscuro) {
-    // Necesitamos esperar a que se cargue el contenido para poder cambiar el icono,
-    // que por defecto en el código HTML siempre es el de la luna
-    document.addEventListener("DOMContentLoaded", () => {
-        activarModoOscuro();
-    })
-}
+// let modo_oscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+// if (modo_oscuro) {
+//     // Necesitamos esperar a que se cargue el contenido para poder cambiar el icono,
+//     // que por defecto en el código HTML siempre es el de la luna
+//     document.addEventListener("DOMContentLoaded", () => {
+//         activarModoOscuro();
+//     })
+// }
 
 
 // let modo_oscuro = false;

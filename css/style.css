@@ -308,6 +308,7 @@ html, body {
     transform: skewX(20deg);
     margin: 0 40px 0 40px;
     font-family: 'Noto Serif', serif;
+    width: 10em;
 }
 
 .h1__imagen {

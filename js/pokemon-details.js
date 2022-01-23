@@ -8,45 +8,25 @@ const descriptionHTML = document.querySelector('.descripcion-pokemon');
 const abilitiesHTML = document.querySelector('.texto--pokemon__ul');
 const heightHTML = document.querySelector('.height');
 const weightHTML = document.querySelector('.weight');
-
 const section = document.querySelector('.pokemon');
 const main = document.querySelector('main');
+const backButton = document.querySelector('.boton--atras');
 const loader = 
 `<figure>
 <img src="img/icono/ultraball.png" alt="Logo ultraball" class="loader">
 <figcaption>Cargando...</figcaption>
 </figure>`;
 
-const backButton = document.querySelector('.boton--atras');
 
+// Control de eventos
+
+// Vuelve al listado de pokémon
 backButton.addEventListener('click', () => {
     window.history.go(-1)
     return false
 });
 
-const capitalizeName = name => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-}
-
-const formatNumber = number => {
-    number = String(number);
-    while (number.length<3) number = '0'+number;
-    return number
-}
-
-// Controla si la llamada a la API da error
-const handleError = response => {
-    if (!response.ok) throw Error(response.error);
-    return response;
-}
-
-// Convierte la respuesta de la API en JSON
-const handleResponse = response => response.json();
-
-
-
-// Ir a los detalles del pokémon
-
+// Imprime los detalles del pokémon cuando carga el contenido del DOM
 document.addEventListener('DOMContentLoaded', () => {
     let urlParams = new URLSearchParams(window.location.search);
     let id = urlParams.get('id');
@@ -56,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchPokemonDetails(id)
 })
 
+
+// Recibe los datos necesarios del pokémon de la API y llama a la función
+// que los muestra por pantalla
 const fetchPokemonDetails = async id => {
     let pokemonDetails = [];
     pokemonDetails.push(formatNumber(id));
@@ -78,6 +61,7 @@ const fetchPokemonDetails = async id => {
     printPokemonDetails(pokemonDetails);
 }
 
+// Recibe la descripción del pokémon de la API
 const getPokemonDescription = async id => {
     let pokemonDescription;
 
@@ -97,6 +81,7 @@ const getPokemonDescription = async id => {
     return pokemonDescription
 }
 
+// Recibe la traducción en español de una habilidad de la API
 const getAbilityTranslation = async url => {
     let translatedAbility;
 
@@ -115,6 +100,7 @@ const getAbilityTranslation = async url => {
     return translatedAbility
 }
 
+// Imprime los datos del pokémon en el HTML
 const printPokemonDetails = async pokemonDetails => {
 
     let pokemonName = pokemonDetails[3];
@@ -131,6 +117,7 @@ const printPokemonDetails = async pokemonDetails => {
     let pokemonImage = pokemonDetails[1];
     let image = document.createElement('img');
     image.setAttribute('src', pokemonImage);
+    image.setAttribute('alt', pokemonName);
     imageHTML.appendChild(image);
     
     let pokemonNumber = pokemonDetails[0];
@@ -144,17 +131,17 @@ const printPokemonDetails = async pokemonDetails => {
 
     let pokemonWeight = pokemonDetails[7];
     weightHTML.innerText = `${pokemonWeight} kg`
+    
+    let pokemonAbilities = pokemonDetails[5];
+    for (let i=0; i<pokemonAbilities.length; i++) {
+        let ability = await getAbilityTranslation(pokemonAbilities[i].ability.url);
+        let listedAbility = `<li>${ability}</li>`;
+        abilitiesHTML.innerHTML += listedAbility;
+    }
 
     let loader = document.querySelector('figure');
     main.removeChild(loader);
     main.style.alignItems = 'flex-start';
     section.style.display = 'flex';
-
-    let pokemonAbilities = pokemonDetails[5];
-    for (let i=0; pokemonAbilities.length; i++) {
-        let ability = await getAbilityTranslation(pokemonAbilities[i].ability.url);
-        let listedAbility = `<li>${ability}</li>`;
-        abilitiesHTML.innerHTML += listedAbility;
-    }
 
 }

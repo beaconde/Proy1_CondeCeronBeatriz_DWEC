@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="img/icono/ultraball.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-producto.css">
-    <title>Movimiento | Rayo</title>
+    <title>Movimiento | </title>
 </head>
 <body>
 <noscript>
@@ -77,19 +77,19 @@
                 <img src="img/icono/superball.png" alt="Logo pokémball blanca" class="titulo__img">
             </div>
             <h1 class="titulo__h1">
-                <span class="titulo__contenido">Rayo</span>
+                <span class="titulo__contenido"></span>
                 <span class="h1__imagen">
-                    <img src="img/movimiento/tipo/electrico.png" alt="Tipo eléctrico">
+                    <!-- <img src="img/movimiento/tipo/electrico.png" alt="Tipo eléctrico"> -->
                 </span>
             </h1>
         </div>
         <div class="datos--movimiento">
             <div class="datos--movimiento__imagen">
-                <img src="img/movimiento/categoria/especial.png" alt="Movimiento especial">
+                <!-- <img src="img/movimiento/categoria/especial.png" alt="Movimiento especial"> -->
                 <hr>
             </div>
             <div class="datos--movimiento__texto">
-                <p>Potente ataque eléctrico que puede paralizar al objetivo.</p>
+                <p class="descripcion-movimiento"></p>
                 <table class="texto__table">
                     <thead>
                     <tr>
@@ -100,15 +100,15 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>90</td>
-                        <td>100</td>
-                        <td>15</td>
+                        <td class="power"></td>
+                        <td class="accuracy"></td>
+                        <td class="pp"></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-        <a href="listado-movimientos.html" class="boton boton--pequeño" onclick="pagina_anterior()">
+        <a href="listado-movimientos.html" class="boton boton--pequeño boton--atras">
             <span class="boton__contenido">Atrás</span>
         </a>
     </section>
@@ -140,6 +140,7 @@
     </div>
 </footer>
 <script src="js/main.js"></script>
+<script src="js/move-details.js"></script>
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 </body>
 </html>

@@ -13,24 +13,16 @@ const loader =
 <figcaption>Cargando...</figcaption>
 </figure>`;
 
-const capitalizeName = name => {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-}
 
-const formatNumber = number => {
-    number = String(number);
-    while (number.length<3) number = '0'+number;
-    return number
-}
+// Control de eventos
 
-// Controla si la llamada a la API da error
-const handleError = response => {
-    if (!response.ok) throw Error(response.error);
-    return response;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    fetchAllPokemon(initialURL);
+});
 
-// Convierte la respuesta de la API en JSON
-const handleResponse = response => response.json();
+nextButton.addEventListener('click', event => loadNext(event));
+prevButton.addEventListener('click', event => loadPrev(event));
+
 
 // Recibe una lista de pokémon y los muestra por pantalla
 const displayList = async pokemonList => {
@@ -133,59 +125,12 @@ const loadPrev = event => {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetchAllPokemon(initialURL);
-});
-
-nextButton.addEventListener('click', event => loadNext(event));
-prevButton.addEventListener('click', event => loadPrev(event));
-
-
 // Buscador
 
 searchForm.addEventListener('submit', (event) => searchPokemon(event));
 randomButton.addEventListener('click', (event) => getRandomPokemon(event));
 
-// Recibe un string y devuelve todos los pokémon de la API que lo contengan en el nombre
-const getPokemonsByName = async name => {
-    let pokemons = [];
-
-    let pokemonList = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=899')
-    .then(handleError)
-    .then(handleResponse)
-    .then(data => data.results)
-    .catch(error => console.log(error))
-
-    for (let i=0; i<pokemonList.length; i++) {
-        let pokemon = pokemonList[i];
-        if (pokemon.name.includes(name)) pokemons.push(pokemon);
-    }
-
-    return pokemons;
-}
-
-const getPokemonsByType = async type => {
-    let pokemons = [];
-
-    let pokemonList = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=899')
-    .then(handleError)
-    .then(handleResponse)
-    .then(data => data.results)
-    .catch(error => console.log(error))
-
-    for (let i=0; i<pokemonList.length; i++) {
-        let pokemon = pokemonList[i];
-        let pokemonTypes = await getPokemonTypes(pokemon.url);
-        for (let i=0; i<pokemonTypes.length; i++) {
-            if (pokemonTypes[i].type.name === type) {
-                pokemons.push(pokemon)
-            }
-        }
-    }
-
-    return pokemons;
-}
-
+// Busca pokémon en función de su nombre, tipo y categoría
 const searchPokemon = async (event) => {
     event.preventDefault();
     
@@ -201,9 +146,10 @@ const searchPokemon = async (event) => {
         
         for (let i=0; i<nameCoincidences.length; i++) {
             let pokemon = nameCoincidences[i];
-            let pokemonTypes = await getPokemonTypes(pokemon.url);
 
             if (type !== '') {
+                let pokemonTypes = await getPokemonTypes(pokemon.url);
+
                 for (let i=0; i<pokemonTypes.length; i++) {
                     if (pokemonTypes[i].type.name === type) {
                         pokemons.push(pokemon)
@@ -228,6 +174,47 @@ const searchPokemon = async (event) => {
     
 }
 
+// Recibe un string y devuelve todos los pokémon de la API que lo contengan en el nombre
+const getPokemonsByName = async name => {
+    let pokemons = [];
+
+    let pokemonList = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=899')
+    .then(handleError)
+    .then(handleResponse)
+    .then(data => data.results)
+    .catch(error => console.log(error))
+
+    for (let i=0; i<pokemonList.length; i++) {
+        let pokemon = pokemonList[i];
+        if (pokemon.name.includes(name)) pokemons.push(pokemon);
+    }
+
+    return pokemons;
+}
+
+// Recibe un tipo y devuelve todos los pokémon de ese tipo
+const getPokemonsByType = async type => {
+    let pokemons = [];
+
+    let pokemonList = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=899')
+    .then(handleError)
+    .then(handleResponse)
+    .then(data => data.results)
+    .catch(error => console.log(error))
+
+    for (let i=0; i<pokemonList.length; i++) {
+        let pokemon = pokemonList[i];
+        let pokemonTypes = await getPokemonTypes(pokemon.url);
+        for (let i=0; i<pokemonTypes.length; i++) {
+            if (pokemonTypes[i].type.name === type) {
+                pokemons.push(pokemon)
+            }
+        }
+    }
+
+    return pokemons;
+}
+
 // Recibe la url de un pokémon y devuelve un array con los tipos del pokémon
 const getPokemonTypes = async url => {
     let pokemonTypes;
@@ -243,10 +230,7 @@ const getPokemonTypes = async url => {
     return pokemonTypes
 }
 
-const getRandomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
+// Imprime un pokémon aleatorio
 const getRandomPokemon = async event => {
     event.preventDefault();
 

@@ -164,8 +164,6 @@ main {
 }
 
 .movimiento {
-    display: flex;
-    align-items: center;
     height: 6em;
     width: 20em;
     border: 1px solid var(--negro);
@@ -180,6 +178,11 @@ main {
 .movimiento:hover {
     transform: translateY(-10px);
     transition: all 0.2s ease-in;
+}
+
+.movimiento__a {
+    display: flex;
+    align-items: center;
 }
 
 .movimiento img {
@@ -356,6 +359,10 @@ main {
     .movimiento {
         height: 4em;
         width: 12em;
+    }
+
+    .movimiento__a {
+        width: 50%;
     }
 
     .movimiento img {

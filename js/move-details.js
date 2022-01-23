@@ -30,10 +30,12 @@ backButton.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     let urlParams = new URLSearchParams(window.location.search);
     let id = urlParams.get('id');
-    section.style.display = 'none';
-    main.style.alignItems = 'center';
-    main.insertAdjacentHTML('beforeend', loader);
-    fetchMoveDetails(id)
+    if (id < 827) {
+        section.style.display = 'none';
+        main.style.alignItems = 'center';
+        main.insertAdjacentHTML('beforeend', loader);
+        fetchMoveDetails(id)
+    } else window.location.href = '404.html';
 })
 
 

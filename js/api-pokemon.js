@@ -13,15 +13,43 @@ const loader =
 <figcaption>Cargando...</figcaption>
 </figure>`;
 
+let favoritePokemon;
 
 // Control de eventos
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchAllPokemon(initialURL);
+
+    // Inicializar lista de favoritos
+    if (localStorage.getItem('favoritePokemon') === null || localStorage.getItem('favoritePokemon') === '') {
+        favoritePokemon = [];
+        localStorage.setItem('favoritePokemon', favoritePokemon);
+    } else {
+        favoritePokemon = localStorage.getItem('favoritePokemon').split(',');
+    }
 });
 
 nextButton.addEventListener('click', event => loadNext(event));
 prevButton.addEventListener('click', event => loadPrev(event));
+
+
+// Añadir un pokémon a la lista de favoritos
+const toggleFavorite = (id, element) => {
+    console.log(element.getAttribute('data-icon'));
+    console.log(id);
+    if (element.getAttribute('data-icon') === 'clarity:heart-line') {
+        favoritePokemon.push(String(id));
+        localStorage.setItem('favoritePokemon', favoritePokemon);
+        element.removeAttribute('data-icon');
+        element.setAttribute('data-icon', 'clarity:heart-solid');
+    } else {
+        let index = favoritePokemon.indexOf(id);
+        favoritePokemon.splice(index, 1);
+        localStorage.setItem('favoritePokemon', favoritePokemon);
+        element.removeAttribute('data-icon');
+        element.setAttribute('data-icon', 'clarity:heart-line');
+    }
+}
 
 
 // Recibe una lista de pokémon y los muestra por pantalla
@@ -52,6 +80,7 @@ const displayList = async pokemonList => {
 
 // Recibe los datos a imprimir de cada pokémon y devuelve el HTML del pokémon
 const printPokemon = (pokemonName, pokemonNumber, pokemonImage) => {
+    let dataIcon = (favoritePokemon.includes(String(pokemonNumber))) ? 'clarity:heart-solid' : 'clarity:heart-line';
     return `
     <div class="pokemon" id="pokemon${pokemonNumber}">
     <a href="pokemon.html?id=${pokemonNumber}" class="pokemon__a">
@@ -63,9 +92,9 @@ const printPokemon = (pokemonName, pokemonNumber, pokemonImage) => {
     <span>Nº${formatNumber(pokemonNumber)}</span>
     ${pokemonName}
     </p>
-    <span class="iconify div__icono" data-icon="clarity:heart-line"></span>
-    </div>
     </a>
+    <span class="iconify div__icono" data-icon="${dataIcon}" onclick="toggleFavorite(${pokemonNumber}, this)"></span>
+    </div>
     </div>
     `
 }
@@ -152,7 +181,7 @@ const searchPokemon = async (event) => {
 
                 for (let i=0; i<pokemonTypes.length; i++) {
                     if (pokemonTypes[i].type.name === type) {
-                        pokemons.push(pokemon)
+                        pokemons.push(pokemon);
                     }
                 }
             } else pokemons.push(pokemon);
@@ -208,6 +237,7 @@ const getPokemonsByType = async type => {
         for (let i=0; i<pokemonTypes.length; i++) {
             if (pokemonTypes[i].type.name === type) {
                 pokemons.push(pokemon)
+                break;
             }
         }
     }

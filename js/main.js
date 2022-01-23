@@ -66,3 +66,8 @@ const handleError = response => {
 
 // Convierte la respuesta de la API en JSON
 const handleResponse = response => response.json();
+
+
+let paginateArray = (arr, pageSize, pageNumber) => {
+    return arr.slice((pageNumber - 1) * pageSize, pageNumber * pageSize)
+}

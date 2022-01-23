@@ -14,6 +14,7 @@ const loader =
 <figcaption>Cargando...</figcaption>
 </figure>`;
 
+let searchedMoves;
 
 // Control de eventos
 
@@ -34,7 +35,7 @@ prevButton.addEventListener('click', event => loadPrev(event));
 const displayList = async moveList => {
     let template = '';
 
-    if (moveList.length < 18) {
+    if (moveList.length < 18 && searchedMoves === undefined) {
         nextButton.style.display = 'none';
         prevButton.style.display = 'none';
     } else {
@@ -121,12 +122,24 @@ const setButtonsURL = data => {
 
 // Muestra los siguientes 18 movimientos
 const loadNext = event => {
-    fetchAllMoves(event.currentTarget.getAttribute('data-url'));
+    if (event.currentTarget.hasAttribute('data-page')) {
+        let pageNumber = event.currentTarget.getAttribute('data-page');
+        let moves = paginateArray(searchedMoves, 18, pageNumber);
+        displayList(moves);
+        setPaginatedButtons(pageNumber);
+    } else fetchAllMoves(event.currentTarget.getAttribute('data-url'));
 }
 
-// Muestra los anteriores 18 movimientos
+// // Muestra los anteriores 18 movimientos
 const loadPrev = event => {
-    fetchAllMoves(event.currentTarget.getAttribute('data-url'));
+    if (event.currentTarget.hasAttribute('data-page')) {
+        let pageNumber = event.currentTarget.getAttribute('data-page');
+        if (pageNumber > 0) {
+            let moves = paginateArray(searchedMoves, 18, pageNumber);
+            displayList(moves);
+            setPaginatedButtons(pageNumber);
+        }
+    } else fetchAllMoves(event.currentTarget.getAttribute('data-url'));
 }
 
 
@@ -199,11 +212,26 @@ const searchMove = async (event) => {
         }
     }
 
-    if (moves.length > 0) displayList(moves);
+    if (moves.length > 0) {
+        let paginatedMoves = paginateArray(moves, 18, 1);
+        displayList(paginatedMoves);
+        setPaginatedButtons(1);
+        searchedMoves = moves;
+    }
     else section.innerHTML = `<figure class="figure">
                               <img src="img/icono/pokeballs.png" alt="Error" class="pokeballs">
                               <figcaption>No se ha encontrado ningún movimiento.</figcaption>
                               </figure>`;
+    
+}
+
+const setPaginatedButtons = pageNumber => {
+
+    if (prevButton.hasAttribute('data-page')) prevButton.removeAttribute('data-page');
+    prevButton.setAttribute('data-page', pageNumber -1);
+
+    if (nextButton.hasAttribute('data-page')) nextButton.removeAttribute('data-page')
+    nextButton.setAttribute('data-page', pageNumber +1);
     
 }
 

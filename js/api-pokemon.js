@@ -13,6 +13,7 @@ const loader =
 <figcaption>Cargando...</figcaption>
 </figure>`;
 
+let searchedPokemon;
 let favoritePokemon;
 
 // Control de eventos
@@ -56,7 +57,7 @@ const toggleFavorite = (id, element) => {
 const displayList = async pokemonList => {
     let template = '';
 
-    if (pokemonList.length < 18) {
+    if (pokemonList.length < 18 && searchedPokemon === undefined) {
         nextButton.style.display = 'none';
         prevButton.style.display = 'none';
     } else {
@@ -145,12 +146,24 @@ const setButtonsURL = data => {
 
 // Muestra los siguientes 18 pokémon
 const loadNext = event => {
-    fetchAllPokemon(event.currentTarget.getAttribute('data-url'));
+    if (event.currentTarget.hasAttribute('data-page')) {
+        let pageNumber = event.currentTarget.getAttribute('data-page');
+        let pokemons = paginateArray(searchedPokemon, 18, pageNumber);
+        displayList(pokemons);
+        setPaginatedButtons(pageNumber);
+    } else fetchAllPokemon(event.currentTarget.getAttribute('data-url'));
 }
 
 // Muestra los anteriores 18 pokémon
 const loadPrev = event => {
-    fetchAllPokemon(event.currentTarget.getAttribute('data-url'));
+    if (event.currentTarget.hasAttribute('data-page')) {
+        let pageNumber = event.currentTarget.getAttribute('data-page');
+        if (pageNumber > 0) {
+            let pokemons = paginateArray(searchedPokemon, 18, pageNumber);
+            displayList(pokemons);
+            setPaginatedButtons(pageNumber);
+        }
+    } else fetchAllPokemon(event.currentTarget.getAttribute('data-url'));
 }
 
 
@@ -195,11 +208,26 @@ const searchPokemon = async (event) => {
         }
     }
 
-    if (pokemons.length > 0) displayList(pokemons);
+    if (pokemons.length > 0) {
+        let paginatedPokemon = paginateArray(pokemons, 18, 1);
+        displayList(paginatedPokemon);
+        setPaginatedButtons(1);
+        searchedPokemon = pokemons;
+    }
     else section.innerHTML = `<figure class="figure">
                               <img src="img/icono/pokeballs.png" alt="Error" class="pokeballs">
                               <figcaption>No se ha encontrado ningún pokémon.</figcaption>
                               </figure>`;
+    
+}
+
+const setPaginatedButtons = pageNumber => {
+
+    if (prevButton.hasAttribute('data-page')) prevButton.removeAttribute('data-page');
+    prevButton.setAttribute('data-page', pageNumber -1);
+
+    if (nextButton.hasAttribute('data-page')) nextButton.removeAttribute('data-page')
+    nextButton.setAttribute('data-page', pageNumber +1);
     
 }
 
